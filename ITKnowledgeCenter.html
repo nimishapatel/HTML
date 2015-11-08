@@ -1,1 +1,147 @@
-My file 
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <title>Information Technology Knowledge Center</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+<style>
+h3{background-color:DarkCyan;padding:5px;color: maroon; align: center}
+
+}
+body{font-family:"Arial";background-color:#E2E2DC}
+
+</style>
+    <style>
+      .username.ng-valid {
+          background-color: lightgreen;
+      }
+      .username.ng-dirty.ng-invalid-required {
+          background-color: red;
+      }
+      .username.ng-dirty.ng-invalid-minlength {
+          background-color: yellow;
+      }
+ 
+      .email.ng-valid {
+          background-color: lightgreen;
+      }
+      .email.ng-dirty.ng-invalid-required {
+          background-color: red;
+      }
+      .email.ng-dirty.ng-invalid-email {
+          background-color: yellow;
+      }
+ 
+</style>
+
+</head>
+<body ng-controller="MyController as ctrl">
+
+<div class="container">
+  <h2></h2>
+  <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+    <li><a data-toggle="pill" href="#registration">Registration</a></li>
+    
+  </ul>
+  
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>HOME</h3>
+<div class="jumbotron">
+	<p><h2 align = "center"><font color="Maroon">Infromation Technology Knowledge Center</h2></p>
+<br>
+<p>
+Our online training programs help organizations and individuals for great carrer in information technology sector. 
+We also help them for certification courses. Our indusry-leading instructors teach progams in professional and advance manner.
+<br>Our main courses are:
+<li>Oracle</li>
+<li>SQL</li>
+<li>Cloud Computing</li>
+<li>Networking</li>
+<li>Big Data</li>
+</p>
+<br>
+<p>
+Intersted candidates can use our online registration form to register for the courses. We will contact them to give more information.
+</p>
+</font> 
+</div>
+</div>
+    
+    <div id="registration" class="tab-pane fade">
+      <div class="page-header">
+        <h3>Online Registration Form </h3>
+    </div>
+     <form class="form-horizontal" role="form" ng-submit="ctrl.submit()" name="myForm">
+
+<div class="form-group form-group-lg">
+<li><label for="username">Name:</label></li>
+          <input type="text" ng-model="ctrl.user.username" name="uname" class="username" placeholder="Enter your name" required ng-minlength="3"/>
+              <span ng-show="myForm.$dirty && myForm.uname.$error.required">This is a required field</span>
+              <span ng-show="myForm.$dirty && myForm.uname.$error.minlength">Minimum length required is 4</span>
+              <span ng-show="myForm.$dirty && myForm.uname.$invalid">This field is invalid </span><br/><br/>
+</div>
+<div class="form-group">
+<li><label for="address1">Address 1:</label></li>
+<input type="text" ng-model="ctrl.user.address1" placeholder="Enter your Address1"/><br/><br/>
+</div>
+<div class="form-group">
+<li><label for="address2">Address 2:</label></li>
+<input type="text" ng-model="ctrl.user.address2" placeholder="Enter your Address2"/><br/><br/>
+</div>
+<div class="form-group">
+<li><label for="city">City:</label></li>
+ <input type="text" ng-model="ctrl.user.city" placeholder="Enter your City"/><br/><br/>
+</div>
+<div class="form-group">
+<li><label for="state">State:</label></li>
+ <input type="text" ng-model="ctrl.user.state" placeholder="Enter your State"/><br/><br/>
+</div>
+<div class="form-group"">
+<li><label for="zipcode">Zipcode:</label></li>
+ <input type="text" ng-model="ctrl.user.zipcode" placeholder="Enter your Zipcode"/><br/><br/>
+</div>
+<div class="form-group">
+<li><label for="email">Email:</label></li>
+          <input type="email" ng-model="ctrl.user.email" name="email" class="email" placeholder="Enter your Email" required/>
+              <span ng-show="myForm.$dirty && myForm.email.$error.required">This is a required field</span>
+              <span ng-show="myForm.$dirty && myForm.email.$invalid">This field is invalid </span><br/><br/>
+</div>
+<div class="form-group">
+<li><label for="courses">Select Course</label></li>
+<select class="form-control" id="courses">
+      <option></option>
+      <option>Oracle</option>
+      <option>SQL</a></option>
+      <option>Cloud Computing</option>
+      <option>Networking</option>
+      option>Big Data</option>
+    </ul>
+</select>
+</div>
+<input type="submit" class="btn btn-info" value="Submit " ng-disabled="myForm.$invalid">
+      </form>
+</div>
+</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js">
+      </script>  
+
+<script>
+          angular.module('myApp', [])
+          .controller('MyController', [function() {
+              var self = this;
+              self.submit = function() {
+                  console.log('Form is submitted with following user', self.user);
+            };
+      }]);
+  </script>
+  </body>
+</html>
